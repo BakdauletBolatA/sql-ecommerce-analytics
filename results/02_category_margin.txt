@@ -1,0 +1,74 @@
+
+=== A. Корневые категории: от выручки к прибыли ===
+
+category           revenue    rev_share_pct  gross_m_pct  refund_pct  contrib_m_pct  contribution  profit_share_pct  rank_by_rev  rank_by_profit  rank_shift
+-----------------  ---------  -------------  -----------  ----------  -------------  ------------  ----------------  -----------  --------------  ----------
+Sports & Outdoors  2310375.0  22.7           36.3         11.1        25.2           581684.0      26.3              2            1               1         
+Home & Kitchen     1790750.0  17.6           36.0         8.0         28.0           500927.0      22.7              3            2               1         
+Electronics        4535115.0  44.5           14.8         5.2         9.6            435789.0      19.7              1            3               -2        
+Beauty             652714.0   6.4            64.0         4.5         59.5           388342.0      17.6              5            4               1         
+Apparel            907375.0   8.9            57.5         24.2        33.3           301787.0      13.7              4            5               -1        
+
+=== B. Листовые категории внутри своей ветки ===
+    RANK() OVER (PARTITION BY ...) — ранг считается ВНУТРИ каждой ветки
+
+parent             category           revenue    contrib_m_pct  contribution  share_in_parent_pct  rank_in_parent  rank_by_margin_all
+-----------------  -----------------  ---------  -------------  ------------  -------------------  --------------  ------------------
+Apparel            Men's Clothing     342993.0   32.2           110472.0      36.6                 1               6                 
+Apparel            Women's Clothing   299218.0   33.5           100378.0      33.3                 2               5                 
+Apparel            Footwear           265164.0   34.3           90937.0       30.1                 3               4                 
+Beauty             Makeup             243093.0   59.8           145308.0      37.4                 1               2                 
+Beauty             Skincare           238831.0   58.5           139714.0      36.0                 2               3                 
+Beauty             Fragrance          170790.0   60.5           103320.0      26.6                 3               1                 
+Electronics        Smartphones        1471742.0  8.7            128320.0      29.4                 1               16                
+Electronics        Wearables          1000939.0  11.3           113268.0      26.0                 2               13                
+Electronics        Laptops            1139372.0  9.0            102685.0      23.6                 3               15                
+Electronics        Audio              923062.0   9.9            91515.0       21.0                 4               14                
+Home & Kitchen     Cookware           655000.0   28.3           185485.0      37.0                 1               8                 
+Home & Kitchen     Furniture          542198.0   30.4           164761.0      32.9                 2               7                 
+Home & Kitchen     Home Decor         593552.0   25.4           150681.0      30.1                 3               11                
+Sports & Outdoors  Fitness Equipment  852587.0   26.2           223639.0      38.4                 1               9                 
+Sports & Outdoors  Outdoor Gear       834254.0   25.6           213526.0      36.7                 2               10                
+Sports & Outdoors  Cycling            623533.0   23.2           144519.0      24.8                 3               12                
+
+=== C. Сжатие маржи во времени (закупка дорожает быстрее цены) ===
+
+quarter  top_category       gross_m_pct  vs_prev_q_pp  vs_first_pp
+-------  -----------------  -----------  ------------  -----------
+2024-Q1  Apparel            59.0                       0.0        
+2025-Q1  Apparel            59.0         4.5           0.0        
+2026-Q1  Apparel            59.6         4.9           0.6        
+2026-Q3  Apparel            56.9         -2.5          -2.1       
+2024-Q1  Beauty             64.8                       0.0        
+2025-Q1  Beauty             65.3         3.7           0.5        
+2026-Q1  Beauty             65.6         3.8           0.8        
+2026-Q3  Beauty             62.8         -2.9          -2.1       
+2024-Q1  Electronics        19.4                       0.0        
+2025-Q1  Electronics        18.3         9.2           -1.1       
+2026-Q1  Electronics        17.4         8.5           -1.9       
+2026-Q3  Electronics        11.9         -6.0          -7.5       
+2024-Q1  Home & Kitchen     39.3                       0.0        
+2025-Q1  Home & Kitchen     38.6         7.0           -0.7       
+2026-Q1  Home & Kitchen     38.1         6.5           -1.2       
+2026-Q3  Home & Kitchen     34.9         -3.5          -4.4       
+2024-Q1  Sports & Outdoors  38.6                       0.0        
+2025-Q1  Sports & Outdoors  38.8         6.0           0.2        
+2026-Q1  Sports & Outdoors  38.6         6.6           0.0        
+2026-Q3  Sports & Outdoors  33.9         -4.7          -4.8       
+
+=== D. Что скидка делает с маржой и с возвратами ===
+
+discount_bucket  lines  share_of_lines_pct  revenue    gross_m_pct  return_rate_pct  contrib_m_pct
+---------------  -----  ------------------  ---------  -----------  ---------------  -------------
+0. без скидки    15906  45.4                4961180.0  36.1         11.0             28.0         
+1. до 10%        9322   26.6                2761805.0  30.3         11.6             21.6         
+2. 10-20%        6613   18.9                1745504.0  23.4         12.0             14.1         
+3. 20-30%        2454   7.0                 574851.0   11.1         13.5             1.3          
+4. свыше 30%     776    2.2                 152990.0   -6.8         16.8             -20.2        
+
+=== E. Влияние доставки: маржа заказа до и после логистики ===
+
+basket_type                        orders  avg_order_value  gross_m_pct  after_returns_pct  after_shipping_pct
+---------------------------------  ------  ---------------  -----------  -----------------  ------------------
+корзина <= 75 (доставка платная)   2232    44.52            55.9         40.7               23.9              
+корзина > 75 (доставка бесплатна)  15415   655.01           30.1         21.5               21.5              

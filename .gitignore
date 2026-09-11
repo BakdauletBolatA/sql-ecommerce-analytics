@@ -1,0 +1,7 @@
+# Собранная база — артефакт, а не исходник: ~107 МБ и полностью
+# воспроизводится из data/generate_ecommerce_db.py с тем же seed.
+data/ecommerce.db
+
+.DS_Store
+__pycache__/
+*.pyc

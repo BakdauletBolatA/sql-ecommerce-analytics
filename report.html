@@ -1,0 +1,1070 @@
+<title>Восемь вопросов к витрине</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --paper:#F1F4F7; --surface:#FFFFFF; --surface-2:#F7F9FB; --surface-3:#EAEFF5;
+  --ink:#0E1621; --ink-2:#33415A; --muted:#5C687A;
+  --line:#D6DEE7; --hair:#E7ECF2;
+  --accent:#104281; --accent-2:#1c5cab; --accent-soft:#E4EDF8;
+  --series-1:#2a78d6;
+  --neg:#c0332f; --pos:#0a7d2c;
+  --div-warm:#e34948; --div-cool:#2a78d6; --div-mid:#DDE3EA;
+  --h1:#e8f1fd; --h1f:#33415A;  --h2:#cde2fb; --h2f:#22304a;
+  --h3:#b7d3f6; --h3f:#1b2a42;  --h4:#9ec5f4; --h4f:#16233a;
+  --h5:#86b6ef; --h5f:#101d33;  --h6:#6da7ec; --h6f:#0c182c;
+  --h7:#3987e5; --h7f:#ffffff;  --h8:#2a78d6; --h8f:#ffffff;
+  --h9:#1c5cab; --h9f:#ffffff;
+  --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --slab:"Bitter",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --paper:#0E1218; --surface:#161B23; --surface-2:#1B212B; --surface-3:#222A36;
+    --ink:#E9EDF2; --ink-2:#C2CBD8; --muted:#93A0B2;
+    --line:#28303C; --hair:#20272F;
+    --accent:#6FA9EC; --accent-2:#8FBEF2; --accent-soft:#152437;
+    --series-1:#3987e5;
+    --neg:#e66767; --pos:#3fbf3f;
+    --div-warm:#e66767; --div-cool:#3987e5; --div-mid:#333B47;
+    --h1:#122740; --h1f:#9DB2CC;  --h2:#0d366b; --h2f:#B6C9E2;
+    --h3:#104281; --h3f:#C6D6EC;  --h4:#184f95; --h4f:#D3E0F2;
+    --h5:#1c5cab; --h5f:#DFE9F7;  --h6:#256abf; --h6f:#EAF1FB;
+    --h7:#2a78d6; --h7f:#FFFFFF;  --h8:#3987e5; --h8f:#0B1220;
+    --h9:#5598e7; --h9f:#0B1220;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#0E1218; --surface:#161B23; --surface-2:#1B212B; --surface-3:#222A36;
+  --ink:#E9EDF2; --ink-2:#C2CBD8; --muted:#93A0B2;
+  --line:#28303C; --hair:#20272F;
+  --accent:#6FA9EC; --accent-2:#8FBEF2; --accent-soft:#152437;
+  --series-1:#3987e5;
+  --neg:#e66767; --pos:#3fbf3f;
+  --div-warm:#e66767; --div-cool:#3987e5; --div-mid:#333B47;
+  --h1:#122740; --h1f:#9DB2CC;  --h2:#0d366b; --h2f:#B6C9E2;
+  --h3:#104281; --h3f:#C6D6EC;  --h4:#184f95; --h4f:#D3E0F2;
+  --h5:#1c5cab; --h5f:#DFE9F7;  --h6:#256abf; --h6f:#EAF1FB;
+  --h7:#2a78d6; --h7f:#FFFFFF;  --h8:#3987e5; --h8f:#0B1220;
+  --h9:#5598e7; --h9f:#0B1220;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.shell{max-width:1240px; margin:0 auto; padding:0 24px 96px}
+
+/* ---------- masthead ---------- */
+.mast{padding:56px 0 34px; border-bottom:2px solid var(--ink)}
+.kicker{
+  font-family:var(--mono); font-size:11.5px; font-weight:500;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--accent);
+  margin:0 0 18px;
+}
+h1{
+  font-family:var(--slab); font-weight:700; font-size:clamp(2.3rem,5.4vw,3.9rem);
+  line-height:1.04; letter-spacing:-.02em; margin:0 0 20px; text-wrap:balance;
+  color:var(--ink);
+}
+.stand{
+  font-size:clamp(1.02rem,1.7vw,1.2rem); line-height:1.55; color:var(--ink-2);
+  max-width:62ch; margin:0 0 30px;
+}
+.meta{
+  display:flex; flex-wrap:wrap; gap:0; border-top:1px solid var(--line);
+  padding-top:20px;
+}
+.meta div{
+  flex:1 1 150px; padding-right:22px; border-right:1px solid var(--hair);
+  margin-right:22px;
+}
+.meta div:last-child{border-right:0; margin-right:0; padding-right:0}
+.meta dt{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--muted); margin:0 0 6px;
+}
+.meta dd{
+  margin:0; font-family:var(--mono); font-size:15px; font-weight:500;
+  color:var(--ink); font-variant-numeric:tabular-nums;
+}
+
+/* ---------- layout ---------- */
+.cols{display:grid; grid-template-columns:1fr; gap:0}
+@media (min-width:1040px){
+  .cols{grid-template-columns:210px minmax(0,1fr); gap:52px; align-items:start}
+}
+.toc{display:none}
+@media (min-width:1040px){
+  .toc{
+    display:block; position:sticky; top:24px; padding-top:44px;
+    max-height:calc(100vh - 48px); overflow-y:auto;
+  }
+}
+.toc h2{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--muted); font-weight:500;
+  margin:0 0 14px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+.toc ol{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:1px}
+.toc a{
+  display:grid; grid-template-columns:26px 1fr; gap:8px; align-items:baseline;
+  padding:6px 8px 6px 0; text-decoration:none; color:var(--ink-2);
+  font-size:13.5px; line-height:1.35; border-radius:3px;
+}
+.toc a:hover{color:var(--accent); background:var(--accent-soft)}
+.toc a:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
+.toc .n{font-family:var(--mono); font-size:11px; color:var(--muted); font-weight:500}
+.toc .sep{
+  margin:14px 0 8px; padding-top:12px; border-top:1px solid var(--hair);
+}
+
+main{padding-top:44px; min-width:0}
+section{margin-bottom:60px; scroll-margin-top:24px}
+p{max-width:66ch; margin:0 0 17px}
+h2.sec{
+  font-family:var(--slab); font-weight:700; font-size:1.72rem; line-height:1.16;
+  letter-spacing:-.015em; margin:0 0 8px; text-wrap:balance;
+}
+h3{
+  font-family:var(--slab); font-weight:600; font-size:1.14rem;
+  margin:34px 0 12px; letter-spacing:-.005em;
+}
+strong{font-weight:600; color:var(--ink)}
+code{
+  font-family:var(--mono); font-size:.885em; background:var(--surface-3);
+  padding:.12em .38em; border-radius:3px; color:var(--ink);
+}
+a.inline{color:var(--accent); text-decoration:underline; text-underline-offset:2px}
+
+/* question header */
+.qhead{
+  display:grid; grid-template-columns:auto 1fr; gap:16px; align-items:start;
+  padding-bottom:16px; margin-bottom:20px; border-bottom:1px solid var(--line);
+}
+.qnum{
+  font-family:var(--mono); font-size:13px; font-weight:600; color:var(--surface);
+  background:var(--accent); width:34px; height:34px; border-radius:2px;
+  display:grid; place-items:center; margin-top:3px;
+}
+.qmeta{
+  display:flex; flex-wrap:wrap; gap:6px 8px; margin-top:10px;
+  font-family:var(--mono); font-size:11px; color:var(--muted);
+}
+.qmeta span{
+  border:1px solid var(--line); padding:2px 7px; border-radius:2px;
+  background:var(--surface-2); white-space:nowrap;
+}
+.qmeta .file{color:var(--accent); border-color:var(--accent); background:var(--accent-soft)}
+
+/* note / callout */
+.note{
+  border-left:3px solid var(--accent); background:var(--surface-2);
+  padding:15px 18px; margin:0 0 22px; max-width:70ch;
+}
+.note p{margin:0 0 10px}
+.note p:last-child{margin:0}
+.note .lbl{
+  display:block; font-family:var(--mono); font-size:10.5px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--accent); margin-bottom:7px; font-weight:500;
+}
+.verdict{
+  border-left-color:var(--pos);
+}
+.verdict .lbl{color:var(--pos)}
+.trap{border-left-color:var(--neg)}
+.trap .lbl{color:var(--neg)}
+
+/* ---------- tables ---------- */
+.twrap{
+  overflow-x:auto; margin:0 0 10px; border:1px solid var(--line);
+  background:var(--surface); border-radius:2px;
+}
+table{border-collapse:collapse; width:100%; font-size:13.5px}
+caption{
+  caption-side:top; text-align:left; font-family:var(--mono); font-size:11px;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--muted);
+  padding:0 0 9px;
+}
+th,td{
+  padding:8px 13px; text-align:right; white-space:nowrap;
+  border-bottom:1px solid var(--hair);
+  font-variant-numeric:tabular-nums; font-family:var(--mono); font-weight:400;
+}
+thead th{
+  position:sticky; top:0; background:var(--surface-2); z-index:1;
+  font-weight:500; font-size:11px; letter-spacing:.05em; color:var(--muted);
+  text-transform:uppercase; border-bottom:1px solid var(--line);
+}
+tbody th,td:first-child,th:first-child{text-align:left}
+tbody th{font-family:var(--sans); font-weight:500; color:var(--ink)}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}
+tbody tr:hover{background:var(--surface-2)}
+td.neg{color:var(--neg); font-weight:500}
+td.pos{color:var(--pos); font-weight:500}
+tr.hi th,tr.hi td{background:var(--accent-soft)}
+tr.hi:hover th,tr.hi:hover td{background:var(--accent-soft)}
+td.em,th.em{font-weight:600; color:var(--ink)}
+.fig-note{
+  font-size:12.5px; color:var(--muted); margin:0 0 24px; max-width:70ch;
+  line-height:1.5;
+}
+
+/* ---------- retention triangle ---------- */
+.tri-wrap{
+  overflow:auto; max-height:520px; border:1px solid var(--line);
+  background:var(--surface); border-radius:2px; margin-bottom:10px;
+}
+table.tri{font-size:12px; width:100%}
+table.tri th[scope="row"]{
+  position:sticky; left:0; background:var(--surface); z-index:2;
+  font-family:var(--mono); font-weight:500; font-size:11.5px;
+  border-right:1px solid var(--line); color:var(--ink-2);
+}
+table.tri thead th{z-index:3}
+table.tri thead th:first-child{left:0; z-index:4}
+table.tri td{padding:0; text-align:center; border-bottom:1px solid var(--surface); border-right:2px solid var(--surface)}
+table.tri td:last-child{border-right:0}
+table.tri td.sz{
+  background:var(--surface-2); color:var(--muted); font-size:11.5px;
+  padding:5px 10px; text-align:right; border-right:1px solid var(--line);
+}
+table.tri tbody th{padding:5px 10px}
+table.tri td.h1,table.tri td.h2,table.tri td.h3,table.tri td.h4,
+table.tri td.h5,table.tri td.h6,table.tri td.h7,table.tri td.h8,table.tri td.h9{
+  padding:5px 8px; font-size:11.5px; font-weight:500;
+}
+td.h1{background:var(--h1); color:var(--h1f)} td.h2{background:var(--h2); color:var(--h2f)}
+td.h3{background:var(--h3); color:var(--h3f)} td.h4{background:var(--h4); color:var(--h4f)}
+td.h5{background:var(--h5); color:var(--h5f)} td.h6{background:var(--h6); color:var(--h6f)}
+td.h7{background:var(--h7); color:var(--h7f)} td.h8{background:var(--h8); color:var(--h8f)}
+td.h9{background:var(--h9); color:var(--h9f)}
+td.cens{background:var(--surface-2); color:var(--muted); padding:5px 8px}
+tr.promo th[scope="row"]{
+  color:var(--neg); font-weight:600;
+  box-shadow:inset 3px 0 0 var(--neg);
+}
+table.tri tbody tr:hover th[scope="row"]{background:var(--surface-3)}
+.ramp{
+  display:flex; flex-wrap:wrap; align-items:center; gap:10px;
+  font-family:var(--mono); font-size:11px; color:var(--muted); margin-bottom:24px;
+}
+.ramp .swatches{display:flex; gap:2px}
+.ramp i{width:26px; height:11px; display:block}
+.ramp .promo-key{
+  display:inline-flex; align-items:center; gap:6px; padding-left:10px;
+  border-left:1px solid var(--line);
+}
+.ramp .promo-key b{
+  width:3px; height:12px; background:var(--neg); display:block;
+}
+
+/* ---------- funnel ---------- */
+.funnel{
+  border:1px solid var(--line); background:var(--surface); padding:16px 18px;
+  display:flex; flex-direction:column; gap:9px; margin-bottom:10px; border-radius:2px;
+}
+.frow{display:grid; grid-template-columns:130px minmax(0,1fr) 58px; gap:14px; align-items:center}
+.fname{font-size:13px; color:var(--ink-2)}
+.ftrack{position:relative; display:flex; align-items:center; gap:9px; min-width:0}
+.fbar{
+  height:19px; background:var(--series-1); border-radius:0 3px 3px 0;
+  display:block; flex:none;
+}
+.fnum{
+  font-family:var(--mono); font-size:12px; color:var(--muted);
+  font-variant-numeric:tabular-nums; white-space:nowrap;
+}
+.fstep{
+  font-family:var(--mono); font-size:12.5px; color:var(--ink); font-weight:500;
+  text-align:right; font-variant-numeric:tabular-nums;
+}
+@media (max-width:620px){
+  .frow{grid-template-columns:96px minmax(0,1fr) 48px; gap:9px}
+  .fname{font-size:12px}
+}
+
+/* ---------- seasonality ---------- */
+.season{
+  border:1px solid var(--line); background:var(--surface); padding:16px 18px;
+  display:flex; flex-direction:column; gap:5px; margin-bottom:10px; border-radius:2px;
+}
+.srow{display:grid; grid-template-columns:26px minmax(0,1fr) 46px; gap:12px; align-items:center}
+.smon{font-family:var(--mono); font-size:11.5px; color:var(--muted)}
+.strack{
+  position:relative; height:17px; background:var(--surface-2);
+  border-left:1px solid var(--div-mid); border-right:1px solid var(--div-mid);
+}
+.strack::before{
+  content:""; position:absolute; left:50%; top:-2px; bottom:-2px; width:1px;
+  background:var(--ink-2); opacity:.55;
+}
+.sbar{position:absolute; top:2px; bottom:2px; display:block}
+.sbar.warm{background:var(--div-warm); border-radius:0 3px 3px 0}
+.sbar.cool{background:var(--div-cool); border-radius:3px 0 0 3px}
+.sval{
+  font-family:var(--mono); font-size:12px; color:var(--ink);
+  font-variant-numeric:tabular-nums; text-align:right;
+}
+.slegend{
+  display:flex; flex-wrap:wrap; gap:16px; font-family:var(--mono); font-size:11px;
+  color:var(--muted); margin-bottom:24px;
+}
+.slegend span{display:inline-flex; align-items:center; gap:6px}
+.slegend i{width:14px; height:11px; display:block}
+
+/* ---------- findings register ---------- */
+.reg{display:flex; flex-direction:column; gap:0; margin:0 0 12px; border-top:1px solid var(--line)}
+.reg article{
+  display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:18px;
+  padding:20px 0; border-bottom:1px solid var(--line); align-items:start;
+}
+.reg .rn{
+  font-family:var(--mono); font-size:12px; font-weight:600; color:var(--muted);
+  padding-top:3px;
+}
+.reg h3{margin:0 0 7px; font-size:1.06rem; font-family:var(--slab); font-weight:600}
+.reg p{margin:0; font-size:14.5px; color:var(--ink-2); max-width:58ch}
+.reg .cost{
+  text-align:right; font-family:var(--mono); font-size:1.28rem; font-weight:600;
+  color:var(--neg); white-space:nowrap; font-variant-numeric:tabular-nums;
+  line-height:1.2;
+}
+.reg .cost small{
+  display:block; font-size:10.5px; font-weight:400; color:var(--muted);
+  letter-spacing:.07em; text-transform:uppercase; margin-top:5px;
+}
+@media (max-width:700px){
+  .reg article{grid-template-columns:auto minmax(0,1fr); gap:12px}
+  .reg .cost{grid-column:2; text-align:left; margin-top:10px}
+}
+
+/* ---------- misc ---------- */
+ol.steps{margin:0 0 20px; padding-left:0; list-style:none; counter-reset:s; max-width:70ch}
+ol.steps li{
+  counter-increment:s; position:relative; padding-left:34px; margin-bottom:13px;
+}
+ol.steps li::before{
+  content:counter(s); position:absolute; left:0; top:1px;
+  font-family:var(--mono); font-size:11px; font-weight:600; color:var(--accent);
+  background:var(--accent-soft); width:22px; height:22px; border-radius:2px;
+  display:grid; place-items:center;
+}
+dl.defs{margin:0 0 22px; max-width:70ch}
+dl.defs dt{
+  font-family:var(--slab); font-weight:600; font-size:15px; margin:20px 0 5px;
+  color:var(--ink);
+}
+dl.defs dt:first-child{margin-top:0}
+dl.defs dd{margin:0; color:var(--ink-2); font-size:15px}
+pre{
+  background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--accent);
+  padding:14px 17px; overflow-x:auto; margin:0 0 18px; border-radius:2px;
+}
+pre code{background:none; padding:0; font-size:13px; color:var(--ink)}
+.foot{
+  margin-top:64px; padding-top:24px; border-top:2px solid var(--ink);
+  font-size:13px; color:var(--muted); max-width:70ch;
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+
+<div class="shell">
+
+<header class="mast">
+  <p class="kicker">SQL · SQLite · CTE и оконные функции</p>
+  <h1>Восемь вопросов к витрине</h1>
+  <p class="stand">Разбор базы интернет-магазина из одиннадцати связанных таблиц: удержание по когортам, маржа по категориям, воронка, сезонность, RFM, окупаемость каналов, ABC-анализ и повторные покупки. Вся аналитика — на чистом SQL.</p>
+  <dl class="meta">
+    <div><dt>Период</dt><dd>01.2024 — 08.2026</dd></div>
+    <div><dt>Покупателей</dt><dd>9 712</dd></div>
+    <div><dt>Заказов</dt><dd>17 647</dd></div>
+    <div><dt>Выручка</dt><dd>10 196 329</dd></div>
+    <div><dt>Оконных функций</dt><dd>176</dd></div>
+  </dl>
+</header>
+
+<div class="cols">
+
+<nav class="toc" aria-label="Содержание">
+  <h2>Содержание</h2>
+  <ol>
+    <li><a href="#resume"><span class="n">→</span><span>Резюме</span></a></li>
+    <li><a href="#data"><span class="n">→</span><span>О данных</span></a></li>
+    <li><a href="#method"><span class="n">→</span><span>Методика</span></a></li>
+  </ol>
+  <div class="sep"></div>
+  <ol>
+    <li><a href="#q1"><span class="n">01</span><span>Когорты</span></a></li>
+    <li><a href="#q2"><span class="n">02</span><span>Маржа</span></a></li>
+    <li><a href="#q3"><span class="n">03</span><span>Воронка</span></a></li>
+    <li><a href="#q4"><span class="n">04</span><span>Сезонность</span></a></li>
+    <li><a href="#q5"><span class="n">05</span><span>RFM</span></a></li>
+    <li><a href="#q6"><span class="n">06</span><span>LTV и CAC</span></a></li>
+    <li><a href="#q7"><span class="n">07</span><span>ABC-анализ</span></a></li>
+    <li><a href="#q8"><span class="n">08</span><span>Повторные покупки</span></a></li>
+  </ol>
+  <div class="sep"></div>
+  <ol>
+    <li><a href="#limits"><span class="n">→</span><span>Ограничения</span></a></li>
+  </ol>
+</nav>
+
+<main>
+
+<section id="resume">
+  <h2 class="sec">Резюме</h2>
+  <p>Бизнес растёт по-настоящему: очищенный от сезонности ряд вырос со 112 тыс. до 490 тыс. в месяц — рост не сводится к «эффекту ноября». Но три вещи систематически съедают результат.</p>
+
+  <div class="reg">
+    <article>
+      <span class="rn">01</span>
+      <div>
+        <h3>paid_social не окупается</h3>
+        <p>47,4% маркетингового бюджета приносят 18,4% прибыли. CAC вырос на 52,9%, LTV/CAC = 1,18 при отраслевой норме 3,0.</p>
+      </div>
+      <div class="cost">−17 512<small>чистыми за период</small></div>
+    </article>
+    <article>
+      <span class="rn">02</span>
+      <div>
+        <h3>Мобильный checkout течёт</h3>
+        <p>22,5% доводят оформление до оплаты против 40,5% на десктопе — при вдвое большем трафике. Это дефект формы оплаты, а не качества трафика.</p>
+      </div>
+      <div class="cost">≈408 тыс.<small>упущено за год</small></div>
+    </article>
+    <article>
+      <span class="rn">03</span>
+      <div>
+        <h3>Ноябрьские когорты — иллюзия роста</h3>
+        <p>Вдвое крупнее обычных (512 против 268 клиентов) и вдвое хуже по удержанию: M+3 составляет 4,3% против 10,2%.</p>
+      </div>
+      <div class="cost">2 047<small>клиентов не вернутся</small></div>
+    </article>
+  </div>
+
+  <p>Плюс две находки поменьше, но с быстрым исполнением: скидки глубже 30% дают <strong>отрицательную</strong> маржу (−20,2%), а 11 товаров в каталоге продаются в убыток.</p>
+
+  <h3>Три действия на ближайший квартал</h3>
+  <ol class="steps">
+    <li>Срезать бюджет paid_social и переложить его в organic, email и referral — там LTV/CAC равен 30,3, 19,7 и 7,0 соответственно.</li>
+    <li>Поставить жёсткий потолок скидки в 20%: всё, что глубже, разрушает стоимость.</li>
+    <li>Взять в работу мобильную оплату — это самый дорогой отдельный дефект в воронке.</li>
+  </ol>
+</section>
+
+<section id="data">
+  <h2 class="sec">О данных</h2>
+  <p>Данные <strong>синтетические</strong>, сгенерированы скриптом с зафиксированным seed. Это осознанный выбор.</p>
+  <p>Задача требует посчитать в том числе маржу по категориям и воронку. Ни один из очевидных открытых датасетов этого не позволяет:</p>
+
+  <div class="twrap">
+    <table>
+      <caption>Почему не подошли открытые датасеты</caption>
+      <thead><tr><th scope="col">Датасет</th><th scope="col" style="text-align:left">Чего не хватает</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Chinook</th><td style="text-align:left; white-space:normal">59 клиентов и 412 заказов — когорты по 2–5 человек; нет себестоимости; нет событий</td></tr>
+        <tr><th scope="row">UCI Online Retail</th><td style="text-align:left; white-space:normal">одна плоская таблица; нет себестоимости, категорий и событий</td></tr>
+        <tr><th scope="row">Olist</th><td style="text-align:left; white-space:normal">нет себестоимости — маркетплейс видит только комиссию</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fig-note">Считать маржу без себестоимости и воронку без лога событий можно только выдумав недостающее. Тогда честнее выдумать всё сразу — но открыто, скриптом, который можно прочитать и перезапустить.</p>
+
+  <h3>Что заложено в генератор намеренно</h3>
+  <p>Скрипт закладывает в данные набор закономерностей, а запросы их ищут. Это делает проект проверяемым: если запрос не находит заложенный эффект — ошибка в запросе, а не в данных.</p>
+  <ol class="steps">
+    <li>Сезонность с пиком в ноябре-декабре и провалом в январе-феврале.</li>
+    <li>Скидочные когорты ноября-декабря с удержанием вдвое хуже.</li>
+    <li>Разная экономика категорий: Electronics — большой оборот при тонкой марже, Apparel — высокая валовая маржа при 27% возвратов.</li>
+    <li>Закупочные цены растут быстрее отпускных, то есть маржа сжимается.</li>
+    <li>Мобильный трафик объёмнее, но хуже доводит до оплаты.</li>
+    <li>CAC в paid_social растёт на 2,8% в месяц.</li>
+    <li>Zipf-популярность товаров — для проверки правила Парето.</li>
+  </ol>
+
+  <div class="note verdict">
+    <span class="lbl">Контрольная проверка методики</span>
+    <p>Декомпозиция сезонности в вопросе 04 восстановила заложенные коэффициенты, ничего не зная о генераторе: для ноября индекс <strong>1,66</strong> при заложенных 1,70, для февраля — <strong>0,756</strong> при заложенных 0,75. Метод работает.</p>
+  </div>
+
+  <h3>Схема</h3>
+  <p>Одиннадцать связанных таблиц в трёх слоях: справочники (<code>categories</code> с самоссылкой, <code>suppliers</code>, <code>products</code>, <code>customers</code>), транзакции (<code>orders</code>, <code>order_items</code>, <code>payments</code>, <code>order_returns</code>) и поведение (<code>sessions</code>, <code>events</code>, <code>marketing_spend</code>).</p>
+  <p>Все проверки целостности и сходимости проходят: ноль «сирот» по всем внешним ключам, 17 647 событий <code>purchase</code> сходятся один-в-один с 17 647 неотменёнными заказами, платежи сходятся с суммой позиций плюс доставка с точностью до цента, в помесячном ряду нет пропусков.</p>
+</section>
+
+<section id="method">
+  <h2 class="sec">Методика</h2>
+  <p>Пять решений, которые влияют на все цифры сразу. Они вынесены в общий слой представлений, чтобы не разъезжаться между отчётами.</p>
+  <dl class="defs">
+    <dt>Отменённые заказы исключены один раз</dt>
+    <dd>638 отменённых заказов отфильтрованы внутри представления <code>v_order_lines</code>. Забыть про них в отдельном запросе теперь физически нельзя.</dd>
+    <dt>Себестоимость берётся из снимка на момент заказа</dt>
+    <dd><code>order_items.unit_cost</code>, а не <code>products.unit_cost</code>: цены поставщиков дрейфуют, и историческая маржа, пересчитанная по сегодняшним ценам, — это не маржа.</dd>
+    <dt>Три уровня маржи разделены</dt>
+    <dd>Валовая → после возвратов → после доставки. Разница между первым и третьим по компании составляет 8 процентных пунктов.</dd>
+    <dt>Когорта — это месяц первого оплаченного заказа</dt>
+    <dd>А не месяц регистрации: зарегистрировавшийся и не купивший не должен портить retention.</dd>
+    <dt>Доставка не размазывается по позициям</dt>
+    <dd><code>shipping_cost</code> относится к заказу целиком; аллокация по строкам была бы выдумкой. Её влияние показано отдельно.</dd>
+  </dl>
+</section>
+
+<section id="q1">
+  <div class="qhead">
+    <span class="qnum">01</span>
+    <div>
+      <h2 class="sec">Удержание по когортам</h2>
+      <div class="qmeta">
+        <span class="file">01_cohort_retention.sql</span>
+        <span>AVG() OVER ()</span><span>LAG()</span><span>RANK()</span>
+        <span>ROWS BETWEEN 2 PRECEDING</span>
+      </div>
+    </div>
+  </div>
+
+  <p>Мы растём за счёт того, что удерживаем клиентов, или за счёт того, что покупаем новых взамен ушедших?</p>
+
+  <div class="note trap">
+    <span class="lbl">Ловушка: правая цензура</span>
+    <p>У августовской когорты 2026 года физически нет данных за M+3. Если поставить там ноль, средние по столбцу поедут вниз и свежие когорты будут выглядеть провальными. В треугольнике такие ячейки отделены от честных нулей.</p>
+  </div>
+
+  <div class="tri-wrap">
+    <table class="tri">
+      <caption>Треугольник удержания: доля когорты, вернувшейся в месяц M</caption>
+      <thead>
+        <tr>
+          <th scope="col">Когорта</th><th scope="col">Размер</th>
+          <th scope="col">M+1</th><th scope="col">M+2</th><th scope="col">M+3</th>
+          <th scope="col">M+6</th><th scope="col">M+9</th><th scope="col">M+12</th>
+        </tr>
+      </thead>
+      <tbody>
+<tr class="coh"><th scope="row">2024-01</th><td class="sz">176</td><td class="h5" title="2024-01 · M+1: вернулись 9.7% когорты">9.7</td><td class="h5" title="2024-01 · M+2: вернулись 8.5% когорты">8.5</td><td class="h6" title="2024-01 · M+3: вернулись 10.2% когорты">10.2</td><td class="h3" title="2024-01 · M+6: вернулись 4.5% когорты">4.5</td><td class="h3" title="2024-01 · M+9: вернулись 4.5% когорты">4.5</td><td class="h3" title="2024-01 · M+12: вернулись 4.0% когорты">4.0</td></tr>
+<tr class="coh"><th scope="row">2024-02</th><td class="sz">176</td><td class="h5" title="2024-02 · M+1: вернулись 9.7% когорты">9.7</td><td class="h7" title="2024-02 · M+2: вернулись 12.5% когорты">12.5</td><td class="h4" title="2024-02 · M+3: вернулись 7.4% когорты">7.4</td><td class="h4" title="2024-02 · M+6: вернулись 6.3% когорты">6.3</td><td class="h5" title="2024-02 · M+9: вернулись 9.1% когорты">9.1</td><td class="h2" title="2024-02 · M+12: вернулись 2.3% когорты">2.3</td></tr>
+<tr class="coh"><th scope="row">2024-03</th><td class="sz">209</td><td class="h5" title="2024-03 · M+1: вернулись 9.1% когорты">9.1</td><td class="h6" title="2024-03 · M+2: вернулись 10.0% когорты">10.0</td><td class="h7" title="2024-03 · M+3: вернулись 13.9% когорты">13.9</td><td class="h4" title="2024-03 · M+6: вернулись 6.2% когорты">6.2</td><td class="h5" title="2024-03 · M+9: вернулись 8.6% когорты">8.6</td><td class="h2" title="2024-03 · M+12: вернулись 2.9% когорты">2.9</td></tr>
+<tr class="coh"><th scope="row">2024-04</th><td class="sz">227</td><td class="h7" title="2024-04 · M+1: вернулись 12.8% когорты">12.8</td><td class="h6" title="2024-04 · M+2: вернулись 11.0% когорты">11.0</td><td class="h4" title="2024-04 · M+3: вернулись 6.6% когорты">6.6</td><td class="h5" title="2024-04 · M+6: вернулись 9.3% когорты">9.3</td><td class="h2" title="2024-04 · M+9: вернулись 2.2% когорты">2.2</td><td class="h2" title="2024-04 · M+12: вернулись 2.6% когорты">2.6</td></tr>
+<tr class="coh"><th scope="row">2024-05</th><td class="sz">230</td><td class="h7" title="2024-05 · M+1: вернулись 14.8% когорты">14.8</td><td class="h6" title="2024-05 · M+2: вернулись 10.0% когорты">10.0</td><td class="h4" title="2024-05 · M+3: вернулись 6.1% когорты">6.1</td><td class="h5" title="2024-05 · M+6: вернулись 8.3% когорты">8.3</td><td class="h2" title="2024-05 · M+9: вернулись 2.2% когорты">2.2</td><td class="h4" title="2024-05 · M+12: вернулись 6.1% когорты">6.1</td></tr>
+<tr class="coh"><th scope="row">2024-06</th><td class="sz">216</td><td class="h7" title="2024-06 · M+1: вернулись 12.5% когорты">12.5</td><td class="h4" title="2024-06 · M+2: вернулись 7.4% когорты">7.4</td><td class="h5" title="2024-06 · M+3: вернулись 8.3% когорты">8.3</td><td class="h6" title="2024-06 · M+6: вернулись 11.1% когорты">11.1</td><td class="h2" title="2024-06 · M+9: вернулись 2.8% когорты">2.8</td><td class="h1" title="2024-06 · M+12: вернулись 1.4% когорты">1.4</td></tr>
+<tr class="coh"><th scope="row">2024-07</th><td class="sz">211</td><td class="h6" title="2024-07 · M+1: вернулись 10.0% когорты">10.0</td><td class="h5" title="2024-07 · M+2: вернулись 9.5% когорты">9.5</td><td class="h7" title="2024-07 · M+3: вернулись 12.3% когорты">12.3</td><td class="h3" title="2024-07 · M+6: вернулись 5.7% когорты">5.7</td><td class="h2" title="2024-07 · M+9: вернулись 3.8% когорты">3.8</td><td class="h2" title="2024-07 · M+12: вернулись 2.4% когорты">2.4</td></tr>
+<tr class="coh"><th scope="row">2024-08</th><td class="sz">225</td><td class="h5" title="2024-08 · M+1: вернулись 9.3% когорты">9.3</td><td class="h5" title="2024-08 · M+2: вернулись 9.3% когорты">9.3</td><td class="h8" title="2024-08 · M+3: вернулись 16.0% когорты">16.0</td><td class="h3" title="2024-08 · M+6: вернулись 5.8% когорты">5.8</td><td class="h3" title="2024-08 · M+9: вернулись 5.8% когорты">5.8</td><td class="h2" title="2024-08 · M+12: вернулись 2.7% когорты">2.7</td></tr>
+<tr class="coh"><th scope="row">2024-09</th><td class="sz">266</td><td class="h7" title="2024-09 · M+1: вернулись 12.4% когорты">12.4</td><td class="h8" title="2024-09 · M+2: вернулись 16.5% когорты">16.5</td><td class="h7" title="2024-09 · M+3: вернулись 13.2% когорты">13.2</td><td class="h4" title="2024-09 · M+6: вернулись 6.4% когорты">6.4</td><td class="h3" title="2024-09 · M+9: вернулись 4.1% когорты">4.1</td><td class="h3" title="2024-09 · M+12: вернулись 4.5% когорты">4.5</td></tr>
+<tr class="coh"><th scope="row">2024-10</th><td class="sz">320</td><td class="h8" title="2024-10 · M+1: вернулись 16.3% когорты">16.3</td><td class="h8" title="2024-10 · M+2: вернулись 15.6% когорты">15.6</td><td class="h4" title="2024-10 · M+3: вернулись 7.2% когорты">7.2</td><td class="h3" title="2024-10 · M+6: вернулись 5.9% когорты">5.9</td><td class="h3" title="2024-10 · M+9: вернулись 4.4% когорты">4.4</td><td class="h3" title="2024-10 · M+12: вернулись 4.1% когорты">4.1</td></tr>
+<tr class="coh promo"><th scope="row">2024-11</th><td class="sz">568</td><td class="h5" title="2024-11 · M+1: вернулись 8.8% когорты">8.8</td><td class="h3" title="2024-11 · M+2: вернулись 4.2% когорты">4.2</td><td class="h2" title="2024-11 · M+3: вернулись 3.7% когорты">3.7</td><td class="h2" title="2024-11 · M+6: вернулись 3.9% когорты">3.9</td><td class="h2" title="2024-11 · M+9: вернулись 2.5% когорты">2.5</td><td class="h3" title="2024-11 · M+12: вернулись 4.0% когорты">4.0</td></tr>
+<tr class="coh promo"><th scope="row">2024-12</th><td class="sz">356</td><td class="h3" title="2024-12 · M+1: вернулись 4.5% когорты">4.5</td><td class="h3" title="2024-12 · M+2: вернулись 4.8% когорты">4.8</td><td class="h3" title="2024-12 · M+3: вернулись 5.1% когорты">5.1</td><td class="h2" title="2024-12 · M+6: вернулись 3.1% когорты">3.1</td><td class="h2" title="2024-12 · M+9: вернулись 2.2% когорты">2.2</td><td class="h3" title="2024-12 · M+12: вернулись 4.5% когорты">4.5</td></tr>
+<tr class="coh"><th scope="row">2025-01</th><td class="sz">241</td><td class="h5" title="2025-01 · M+1: вернулись 9.5% когорты">9.5</td><td class="h6" title="2025-01 · M+2: вернулись 11.6% когорты">11.6</td><td class="h6" title="2025-01 · M+3: вернулись 11.2% когорты">11.2</td><td class="h4" title="2025-01 · M+6: вернулись 7.5% когорты">7.5</td><td class="h2" title="2025-01 · M+9: вернулись 3.7% когорты">3.7</td><td class="h2" title="2025-01 · M+12: вернулись 3.3% когорты">3.3</td></tr>
+<tr class="coh"><th scope="row">2025-02</th><td class="sz">224</td><td class="h7" title="2025-02 · M+1: вернулись 12.1% когорты">12.1</td><td class="h6" title="2025-02 · M+2: вернулись 10.7% когорты">10.7</td><td class="h6" title="2025-02 · M+3: вернулись 10.3% когорты">10.3</td><td class="h5" title="2025-02 · M+6: вернулись 8.0% когорты">8.0</td><td class="h5" title="2025-02 · M+9: вернулись 8.0% когорты">8.0</td><td class="h2" title="2025-02 · M+12: вернулись 2.2% когорты">2.2</td></tr>
+<tr class="coh"><th scope="row">2025-03</th><td class="sz">259</td><td class="h7" title="2025-03 · M+1: вернулись 12.4% когорты">12.4</td><td class="h7" title="2025-03 · M+2: вернулись 12.4% когорты">12.4</td><td class="h5" title="2025-03 · M+3: вернулись 8.9% когорты">8.9</td><td class="h3" title="2025-03 · M+6: вернулись 5.8% когорты">5.8</td><td class="h2" title="2025-03 · M+9: вернулись 3.9% когорты">3.9</td><td class="h2" title="2025-03 · M+12: вернулись 2.7% когорты">2.7</td></tr>
+<tr class="coh"><th scope="row">2025-04</th><td class="sz">286</td><td class="h7" title="2025-04 · M+1: вернулись 12.9% когорты">12.9</td><td class="h6" title="2025-04 · M+2: вернулись 11.5% когорты">11.5</td><td class="h5" title="2025-04 · M+3: вернулись 9.1% когорты">9.1</td><td class="h5" title="2025-04 · M+6: вернулись 9.8% когорты">9.8</td><td class="h2" title="2025-04 · M+9: вернулись 3.1% когорты">3.1</td><td class="h1" title="2025-04 · M+12: вернулись 1.7% когорты">1.7</td></tr>
+<tr class="coh"><th scope="row">2025-05</th><td class="sz">301</td><td class="h7" title="2025-05 · M+1: вернулись 12.3% когорты">12.3</td><td class="h7" title="2025-05 · M+2: вернулись 12.3% когорты">12.3</td><td class="h5" title="2025-05 · M+3: вернулись 8.3% когорты">8.3</td><td class="h6" title="2025-05 · M+6: вернулись 11.0% когорты">11.0</td><td class="h2" title="2025-05 · M+9: вернулись 2.3% когорты">2.3</td><td class="h3" title="2025-05 · M+12: вернулись 4.0% когорты">4.0</td></tr>
+<tr class="coh"><th scope="row">2025-06</th><td class="sz">274</td><td class="h7" title="2025-06 · M+1: вернулись 12.0% когорты">12.0</td><td class="h5" title="2025-06 · M+2: вернулись 9.5% когорты">9.5</td><td class="h6" title="2025-06 · M+3: вернулись 11.7% когорты">11.7</td><td class="h7" title="2025-06 · M+6: вернулись 12.0% когорты">12.0</td><td class="h3" title="2025-06 · M+9: вернулись 4.4% когорты">4.4</td><td class="h1" title="2025-06 · M+12: вернулись 1.5% когорты">1.5</td></tr>
+<tr class="coh"><th scope="row">2025-07</th><td class="sz">264</td><td class="h6" title="2025-07 · M+1: вернулись 10.6% когорты">10.6</td><td class="h6" title="2025-07 · M+2: вернулись 11.7% когорты">11.7</td><td class="h6" title="2025-07 · M+3: вернулись 11.0% когорты">11.0</td><td class="h2" title="2025-07 · M+6: вернулись 3.4% когорты">3.4</td><td class="h3" title="2025-07 · M+9: вернулись 5.7% когорты">5.7</td><td class="h1" title="2025-07 · M+12: вернулись 1.1% когорты">1.1</td></tr>
+<tr class="coh"><th scope="row">2025-08</th><td class="sz">280</td><td class="h7" title="2025-08 · M+1: вернулись 14.3% когорты">14.3</td><td class="h8" title="2025-08 · M+2: вернулись 15.7% когорты">15.7</td><td class="h8" title="2025-08 · M+3: вернулись 16.4% когорты">16.4</td><td class="h3" title="2025-08 · M+6: вернулись 5.0% когорты">5.0</td><td class="h3" title="2025-08 · M+9: вернулись 5.7% когорты">5.7</td><td class="h2" title="2025-08 · M+12: вернулись 3.9% когорты">3.9</td></tr>
+<tr class="coh"><th scope="row">2025-09</th><td class="sz">332</td><td class="h7" title="2025-09 · M+1: вернулись 14.8% когорты">14.8</td><td class="h9" title="2025-09 · M+2: вернулись 20.5% когорты">20.5</td><td class="h8" title="2025-09 · M+3: вернулись 15.4% когорты">15.4</td><td class="h4" title="2025-09 · M+6: вернулись 7.5% когорты">7.5</td><td class="h4" title="2025-09 · M+9: вернулись 6.0% когорты">6.0</td><td class="cens" title="2025-09 · M+12: месяц ещё не наступил">—</td></tr>
+<tr class="coh"><th scope="row">2025-10</th><td class="sz">385</td><td class="h9" title="2025-10 · M+1: вернулись 19.2% когорты">19.2</td><td class="h8" title="2025-10 · M+2: вернулись 16.1% когорты">16.1</td><td class="h4" title="2025-10 · M+3: вернулись 6.8% когорты">6.8</td><td class="h4" title="2025-10 · M+6: вернулись 7.0% когорты">7.0</td><td class="h2" title="2025-10 · M+9: вернулись 3.9% когорты">3.9</td><td class="cens" title="2025-10 · M+12: месяц ещё не наступил">—</td></tr>
+<tr class="coh promo"><th scope="row">2025-11</th><td class="sz">687</td><td class="h5" title="2025-11 · M+1: вернулись 9.8% когорты">9.8</td><td class="h2" title="2025-11 · M+2: вернулись 3.9% когорты">3.9</td><td class="h3" title="2025-11 · M+3: вернулись 4.7% когорты">4.7</td><td class="h3" title="2025-11 · M+6: вернулись 4.2% когорты">4.2</td><td class="h2" title="2025-11 · M+9: вернулись 2.5% когорты">2.5</td><td class="cens" title="2025-11 · M+12: месяц ещё не наступил">—</td></tr>
+<tr class="coh promo"><th scope="row">2025-12</th><td class="sz">436</td><td class="h3" title="2025-12 · M+1: вернулись 4.1% когорты">4.1</td><td class="h2" title="2025-12 · M+2: вернулись 3.7% когорты">3.7</td><td class="h2" title="2025-12 · M+3: вернулись 3.9% когорты">3.9</td><td class="h2" title="2025-12 · M+6: вернулись 3.7% когорты">3.7</td><td class="cens" title="2025-12 · M+9: месяц ещё не наступил">—</td><td class="cens" title="2025-12 · M+12: месяц ещё не наступил">—</td></tr>
+<tr class="coh"><th scope="row">2026-01</th><td class="sz">281</td><td class="h6" title="2026-01 · M+1: вернулись 10.3% когорты">10.3</td><td class="h5" title="2026-01 · M+2: вернулись 8.5% когорты">8.5</td><td class="h6" title="2026-01 · M+3: вернулись 10.7% когорты">10.7</td><td class="h3" title="2026-01 · M+6: вернулись 5.7% когорты">5.7</td><td class="cens" title="2026-01 · M+9: месяц ещё не наступил">—</td><td class="cens" title="2026-01 · M+12: месяц ещё не наступил">—</td></tr>
+<tr class="coh"><th scope="row">2026-02</th><td class="sz">267</td><td class="h6" title="2026-02 · M+1: вернулись 11.2% когорты">11.2</td><td class="h5" title="2026-02 · M+2: вернулись 9.7% когорты">9.7</td><td class="h6" title="2026-02 · M+3: вернулись 10.1% когорты">10.1</td><td class="h5" title="2026-02 · M+6: вернулись 9.4% когорты">9.4</td><td class="cens" title="2026-02 · M+9: месяц ещё не наступил">—</td><td class="cens" title="2026-02 · M+12: месяц ещё не наступил">—</td></tr>
+<tr class="coh"><th scope="row">2026-03</th><td class="sz">331</td><td class="h6" title="2026-03 · M+1: вернулись 10.6% когорты">10.6</td><td class="h8" title="2026-03 · M+2: вернулись 15.7% когорты">15.7</td><td class="h4" title="2026-03 · M+3: вернулись 6.9% когорты">6.9</td><td class="cens" title="2026-03 · M+6: месяц ещё не наступил">—</td><td class="cens" title="2026-03 · M+9: месяц ещё не наступил">—</td><td class="cens" title="2026-03 · M+12: месяц ещё не наступил">—</td></tr>
+<tr class="coh"><th scope="row">2026-04</th><td class="sz">349</td><td class="h7" title="2026-04 · M+1: вернулись 12.6% когорты">12.6</td><td class="h5" title="2026-04 · M+2: вернулись 9.7% когорты">9.7</td><td class="h5" title="2026-04 · M+3: вернулись 9.2% когорты">9.2</td><td class="cens" title="2026-04 · M+6: месяц ещё не наступил">—</td><td class="cens" title="2026-04 · M+9: месяц ещё не наступил">—</td><td class="cens" title="2026-04 · M+12: месяц ещё не наступил">—</td></tr>
+<tr class="coh"><th scope="row">2026-05</th><td class="sz">359</td><td class="h7" title="2026-05 · M+1: вернулись 12.5% когорты">12.5</td><td class="h6" title="2026-05 · M+2: вернулись 10.6% когорты">10.6</td><td class="h6" title="2026-05 · M+3: вернулись 10.3% когорты">10.3</td><td class="cens" title="2026-05 · M+6: месяц ещё не наступил">—</td><td class="cens" title="2026-05 · M+9: месяц ещё не наступил">—</td><td class="cens" title="2026-05 · M+12: месяц ещё не наступил">—</td></tr>
+<tr class="coh"><th scope="row">2026-06</th><td class="sz">320</td><td class="h6" title="2026-06 · M+1: вернулись 10.9% когорты">10.9</td><td class="h6" title="2026-06 · M+2: вернулись 10.0% когорты">10.0</td><td class="cens" title="2026-06 · M+3: месяц ещё не наступил">—</td><td class="cens" title="2026-06 · M+6: месяц ещё не наступил">—</td><td class="cens" title="2026-06 · M+9: месяц ещё не наступил">—</td><td class="cens" title="2026-06 · M+12: месяц ещё не наступил">—</td></tr>
+<tr class="coh"><th scope="row">2026-07</th><td class="sz">323</td><td class="h8" title="2026-07 · M+1: вернулись 15.2% когорты">15.2</td><td class="cens" title="2026-07 · M+2: месяц ещё не наступил">—</td><td class="cens" title="2026-07 · M+3: месяц ещё не наступил">—</td><td class="cens" title="2026-07 · M+6: месяц ещё не наступил">—</td><td class="cens" title="2026-07 · M+9: месяц ещё не наступил">—</td><td class="cens" title="2026-07 · M+12: месяц ещё не наступил">—</td></tr>
+<tr class="coh"><th scope="row">2026-08</th><td class="sz">333</td><td class="cens" title="2026-08 · M+1: месяц ещё не наступил">—</td><td class="cens" title="2026-08 · M+2: месяц ещё не наступил">—</td><td class="cens" title="2026-08 · M+3: месяц ещё не наступил">—</td><td class="cens" title="2026-08 · M+6: месяц ещё не наступил">—</td><td class="cens" title="2026-08 · M+9: месяц ещё не наступил">—</td><td class="cens" title="2026-08 · M+12: месяц ещё не наступил">—</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="ramp">
+    <span>Удержание</span>
+    <span class="swatches">
+      <i style="background:var(--h1)"></i><i style="background:var(--h2)"></i>
+      <i style="background:var(--h3)"></i><i style="background:var(--h4)"></i>
+      <i style="background:var(--h5)"></i><i style="background:var(--h6)"></i>
+      <i style="background:var(--h7)"></i><i style="background:var(--h8)"></i>
+      <i style="background:var(--h9)"></i>
+    </span>
+    <span>0% → 20%</span>
+    <span class="promo-key"><b></b> скидочная когорта (ноя/дек)</span>
+    <span>— месяц ещё не наступил</span>
+  </div>
+
+  <p>Результат оказался противоположным интуиции «большая когорта — хорошая когорта».</p>
+
+  <div class="twrap">
+    <table>
+      <caption>Скидочные когорты против остальных</caption>
+      <thead><tr><th scope="col">Тип когорты</th><th scope="col">Когорт</th><th scope="col">Клиентов</th><th scope="col">Средний размер</th><th scope="col">M+1</th><th scope="col">M+3</th></tr></thead>
+      <tbody>
+        <tr class="hi"><th scope="row">Скидочные (ноя–дек)</th><td>4</td><td>2 047</td><td class="em">512</td><td class="em">7,4%</td><td class="em">4,3%</td></tr>
+        <tr><th scope="row">Обычные</th><td>25</td><td>6 689</td><td>268</td><td>12,5%</td><td>10,2%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fig-note">Ноябрьские когорты занимают 1-е и 2-е места по размеру и 29-е и 31-е из 31 по удержанию. Ноябрь 2025 — самая крупная когорта за всю историю (687 клиентов) и одна из худших.</p>
+
+  <div class="twrap">
+    <table>
+      <caption>Удержание по каналу привлечения</caption>
+      <thead><tr><th scope="col">Канал</th><th scope="col">Доля базы</th><th scope="col">M+1</th><th scope="col">M+3</th><th scope="col">M+6</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">organic_search</th><td>18,3%</td><td>14,8%</td><td class="em">12,4%</td><td>8,3%</td></tr>
+        <tr><th scope="row">direct</th><td>13,2%</td><td>11,3%</td><td>11,3%</td><td>7,1%</td></tr>
+        <tr><th scope="row">referral</th><td>9,2%</td><td class="em">16,1%</td><td>11,1%</td><td class="em">8,6%</td></tr>
+        <tr><th scope="row">email</th><td>9,7%</td><td>11,9%</td><td>10,8%</td><td>9,0%</td></tr>
+        <tr><th scope="row">paid_search</th><td>19,5%</td><td>11,1%</td><td>7,8%</td><td>5,9%</td></tr>
+        <tr><th scope="row">affiliate</th><td>6,5%</td><td>9,4%</td><td>6,0%</td><td>6,0%</td></tr>
+        <tr class="hi"><th scope="row">paid_social</th><td class="em">23,7%</td><td>6,6%</td><td class="em">4,6%</td><td>3,3%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note verdict">
+    <span class="lbl">Вывод</span>
+    <p>paid_social — крупнейший поставщик клиентов (23,7% базы) и худший по удержанию с отрывом. Ноябрьский прирост клиентской базы бухгалтерский, а не экономический: он не превращается в повторные покупки.</p>
+  </div>
+</section>
+
+<section id="q2">
+  <div class="qhead">
+    <span class="qnum">02</span>
+    <div>
+      <h2 class="sec">Топ-категорий по марже</h2>
+      <div class="qmeta">
+        <span class="file">02_category_margin.sql</span>
+        <span>SUM() OVER ()</span><span>RANK()</span><span>DENSE_RANK()</span>
+        <span>LAG()</span><span>FIRST_VALUE()</span><span>WITH RECURSIVE</span>
+      </div>
+    </div>
+  </div>
+
+  <p>Какие категории реально зарабатывают деньги? Выручка и прибыль — не одно и то же, а между валовой маржой и деньгами в кармане стоят скидки и возвраты. Рейтинг по выручке и рейтинг по прибыли оказались двумя разными рейтингами.</p>
+
+  <div class="twrap">
+    <table>
+      <caption>От выручки к прибыли по корневым категориям</caption>
+      <thead><tr><th scope="col">Категория</th><th scope="col">Выручка</th><th scope="col">Доля выручки</th><th scope="col">Валовая маржа</th><th scope="col">Возвраты</th><th scope="col">После возвратов</th><th scope="col">Доля прибыли</th><th scope="col">Ранг</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Sports &amp; Outdoors</th><td>2 310 375</td><td>22,7%</td><td>36,3%</td><td>11,1%</td><td>25,2%</td><td>26,3%</td><td class="pos">2 → 1</td></tr>
+        <tr><th scope="row">Home &amp; Kitchen</th><td>1 790 750</td><td>17,6%</td><td>36,0%</td><td>8,0%</td><td>28,0%</td><td>22,7%</td><td class="pos">3 → 2</td></tr>
+        <tr class="hi"><th scope="row">Electronics</th><td class="em">4 535 115</td><td class="em">44,5%</td><td>14,8%</td><td>5,2%</td><td class="em">9,6%</td><td class="em">19,7%</td><td class="neg">1 → 3</td></tr>
+        <tr><th scope="row">Beauty</th><td>652 714</td><td>6,4%</td><td class="em">64,0%</td><td>4,5%</td><td class="em">59,5%</td><td>17,6%</td><td class="pos">5 → 4</td></tr>
+        <tr><th scope="row">Apparel</th><td>907 375</td><td>8,9%</td><td>57,5%</td><td class="em">24,2%</td><td>33,3%</td><td>13,7%</td><td class="neg">4 → 5</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fig-note">Electronics даёт почти половину оборота и меньше пятой части прибыли — категория, которая делает отчёт по выручке красивым, а бизнес бедным. Apparel теряет 24,2 процентных пункта маржи на возвратах: это не проблема закупки, а проблема размерных сеток — 34,4% возвратов ветки приходится на <code>size_mismatch</code>. Beauty при 6,4% оборота даёт 17,6% прибыли.</p>
+
+  <h3>Где проходит граница разумной скидки</h3>
+  <div class="twrap">
+    <table>
+      <caption>Влияние глубины скидки на маржу и возвраты</caption>
+      <thead><tr><th scope="col">Глубина скидки</th><th scope="col">Доля позиций</th><th scope="col">Валовая маржа</th><th scope="col">Возвраты</th><th scope="col">После возвратов</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">без скидки</th><td>45,4%</td><td>36,1%</td><td>11,0%</td><td>28,0%</td></tr>
+        <tr><th scope="row">до 10%</th><td>26,6%</td><td>30,3%</td><td>11,6%</td><td>21,6%</td></tr>
+        <tr><th scope="row">10–20%</th><td>18,9%</td><td>23,4%</td><td>12,0%</td><td>14,1%</td></tr>
+        <tr><th scope="row">20–30%</th><td>7,0%</td><td>11,1%</td><td>13,5%</td><td class="em">1,3%</td></tr>
+        <tr class="hi"><th scope="row">свыше 30%</th><td>2,2%</td><td class="neg">−6,8%</td><td class="em">16,8%</td><td class="neg">−20,2%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fig-note">Скидка глубже 30% продаёт товар дешевле закупки — и такие заказы вдобавок возвращают в полтора раза чаще. Это 2,2% позиций, которые работают против компании.</p>
+
+  <div class="note verdict">
+    <span class="lbl">Вывод</span>
+    <p>Смещать ассортиментный фокус в Beauty и Home &amp; Kitchen; поставить потолок скидки 20%; разбираться с размерными сетками в Apparel. Отдельно — пересматривать цены в Electronics: валовая маржа там упала с 19,4% в 2024-Q1 до 11,9% в 2026-Q3, потому что закупка дорожает быстрее отпускной цены.</p>
+  </div>
+</section>
+
+<section id="q3">
+  <div class="qhead">
+    <span class="qnum">03</span>
+    <div>
+      <h2 class="sec">Воронка конверсии</h2>
+      <div class="qmeta">
+        <span class="file">03_conversion_funnel.sql</span>
+        <span>LAG()</span><span>FIRST_VALUE()</span><span>SUM() OVER ()</span>
+        <span>AVG() OVER (PARTITION BY)</span>
+      </div>
+    </div>
+  </div>
+
+  <p>Считаются сессии, дошедшие до шага, а не события: пользователь, посмотревший четыре товара, — одна сессия на шаге «просмотр», иначе конверсия шага превысила бы 100%.</p>
+
+  <div class="funnel">
+<div class="frow" title="Сессия: 350 000 сессий"><span class="fname">Сессия</span><span class="ftrack"><i class="fbar" style="width:100.00%"></i><span class="fnum">350 000</span></span><span class="fstep">—</span></div>
+<div class="frow" title="Просмотр товара: 238 293 сессий"><span class="fname">Просмотр товара</span><span class="ftrack"><i class="fbar" style="width:68.08%"></i><span class="fnum">238 293</span></span><span class="fstep">68,1%</span></div>
+<div class="frow" title="Корзина: 90 172 сессий"><span class="fname">Корзина</span><span class="ftrack"><i class="fbar" style="width:25.76%"></i><span class="fnum">90 172</span></span><span class="fstep">37,8%</span></div>
+<div class="frow" title="Оформление: 60 852 сессий"><span class="fname">Оформление</span><span class="ftrack"><i class="fbar" style="width:17.39%"></i><span class="fnum">60 852</span></span><span class="fstep">67,5%</span></div>
+<div class="frow" title="Покупка: 17 647 сессий"><span class="fname">Покупка</span><span class="ftrack"><i class="fbar" style="width:5.04%"></i><span class="fnum">17 647</span></span><span class="fstep">29,0%</span></div>
+  </div>
+  <p class="fig-note">Слева направо: название шага, число дошедших сессий и конверсия из предыдущего шага. Самая большая абсолютная потеря — переход просмотр → корзина: 148 121 сессия, или 42,3% от вершины воронки.</p>
+
+  <div class="twrap">
+    <table>
+      <caption>Разрез по устройствам</caption>
+      <thead><tr><th scope="col">Устройство</th><th scope="col">Сессий</th><th scope="col">Корзина → оформление</th><th scope="col">Оформление → оплата</th><th scope="col">Сквозная конверсия</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">desktop</th><td>114 438</td><td>63,4%</td><td class="em">40,5%</td><td>7,02%</td></tr>
+        <tr class="hi"><th scope="row">mobile</th><td class="em">207 657</td><td>70,4%</td><td class="neg">22,5%</td><td>3,94%</td></tr>
+        <tr><th scope="row">tablet</th><td>27 905</td><td>64,3%</td><td>30,4%</td><td>5,12%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fig-note">Мобильных сессий в 1,8 раза больше, а покупок столько же: 8 191 против 8 028. До оформления мобильные доходят даже чаще десктопных (70,4% против 63,4%) — и там ломаются. Это не проблема каталога и не проблема трафика, а проблема формы оплаты.</p>
+
+  <div class="note">
+    <span class="lbl">Оценка стоимости дефекта</span>
+    <p>Мобильных оформлений 36 326. При текущих 22,5% они дают 8 191 заказ. Если закрыть хотя бы половину разрыва с десктопом — до 31,5% — получится 11 443 заказа. Это <strong>+3 252 заказа</strong>, что при среднем чеке 577,79 и марже 21,7% даёт около <strong>+408 тыс.</strong> вклада в год.</p>
+  </div>
+
+  <div class="twrap">
+    <table>
+      <caption>Качество источников расходится с их объёмом</caption>
+      <thead><tr><th scope="col">Источник</th><th scope="col">Сессий</th><th scope="col">Доля трафика</th><th scope="col">Просмотр → корзина</th><th scope="col">Сквозная конверсия</th><th scope="col">Объём / качество</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">direct</th><td>47 876</td><td>13,7%</td><td>43,2%</td><td class="em">9,49%</td><td>4 / 1</td></tr>
+        <tr><th scope="row">email</th><td>36 149</td><td>10,3%</td><td class="em">45,5%</td><td>8,11%</td><td>5 / 2</td></tr>
+        <tr><th scope="row">organic_search</th><td>63 708</td><td>18,2%</td><td>42,8%</td><td>5,99%</td><td>3 / 3</td></tr>
+        <tr><th scope="row">referral</th><td>30 965</td><td>8,8%</td><td>39,0%</td><td>3,42%</td><td>6 / 4</td></tr>
+        <tr><th scope="row">affiliate</th><td>20 564</td><td>5,9%</td><td>29,1%</td><td>3,29%</td><td>7 / 5</td></tr>
+        <tr><th scope="row">paid_search</th><td>68 472</td><td>19,6%</td><td>33,9%</td><td>3,15%</td><td>2 / 6</td></tr>
+        <tr class="hi"><th scope="row">paid_social</th><td class="em">82 266</td><td class="em">23,5%</td><td class="neg">25,0%</td><td class="neg">2,99%</td><td class="em">1 / 7</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note verdict">
+    <span class="lbl">Вывод</span>
+    <p>paid_social — первый по объёму и последний по качеству: четверть трафика при худшей конверсии просмотр → корзина (25,0% против 45,5% у email).</p>
+  </div>
+</section>
+
+<section id="q4">
+  <div class="qhead">
+    <span class="qnum">04</span>
+    <div>
+      <h2 class="sec">Сезонность и настоящий тренд</h2>
+      <div class="qmeta">
+        <span class="file">04_seasonality.sql</span>
+        <span>LAG(…, 12)</span><span>ROWS BETWEEN 6 PRECEDING AND 5 FOLLOWING</span>
+        <span>COUNT() OVER</span><span>WINDOW w AS</span>
+      </div>
+    </div>
+  </div>
+
+  <p>Метод — классическая декомпозиция «отношение к скользящей средней»: центрированное среднее за 12 месяцев съедает сезонность, отношение факта к нему её и выделяет.</p>
+
+  <div class="note trap">
+    <span class="lbl">Ловушка: неполное окно на краях ряда</span>
+    <p>На первых шести и последних пяти месяцах полного 12-месячного окна нет, и SQLite молча посчитает среднее по неполному. Такие месяцы явно превращаются в <code>NULL</code> через <code>COUNT(*) OVER w = 12</code>.</p>
+  </div>
+
+  <div class="season">
+<div class="srow" title="Месяц 01: индекс 0.862"><span class="smon">01</span><span class="strack"><i class="sbar cool" style="right:50%;width:10.45%"></i></span><span class="sval">0.86</span></div>
+<div class="srow" title="Месяц 02: индекс 0.756"><span class="smon">02</span><span class="strack"><i class="sbar cool" style="right:50%;width:18.48%"></i></span><span class="sval">0.76</span></div>
+<div class="srow" title="Месяц 03: индекс 0.896"><span class="smon">03</span><span class="strack"><i class="sbar cool" style="right:50%;width:7.88%"></i></span><span class="sval">0.90</span></div>
+<div class="srow" title="Месяц 04: индекс 0.984"><span class="smon">04</span><span class="strack"><i class="sbar cool" style="right:50%;width:1.21%"></i></span><span class="sval">0.98</span></div>
+<div class="srow" title="Месяц 05: индекс 1.102"><span class="smon">05</span><span class="strack"><i class="sbar warm" style="left:50%;width:7.73%"></i></span><span class="sval">1.10</span></div>
+<div class="srow" title="Месяц 06: индекс 0.899"><span class="smon">06</span><span class="strack"><i class="sbar cool" style="right:50%;width:7.65%"></i></span><span class="sval">0.90</span></div>
+<div class="srow" title="Месяц 07: индекс 0.796"><span class="smon">07</span><span class="strack"><i class="sbar cool" style="right:50%;width:15.45%"></i></span><span class="sval">0.80</span></div>
+<div class="srow" title="Месяц 08: индекс 0.848"><span class="smon">08</span><span class="strack"><i class="sbar cool" style="right:50%;width:11.52%"></i></span><span class="sval">0.85</span></div>
+<div class="srow" title="Месяц 09: индекс 0.974"><span class="smon">09</span><span class="strack"><i class="sbar cool" style="right:50%;width:1.97%"></i></span><span class="sval">0.97</span></div>
+<div class="srow" title="Месяц 10: индекс 1.190"><span class="smon">10</span><span class="strack"><i class="sbar warm" style="left:50%;width:14.39%"></i></span><span class="sval">1.19</span></div>
+<div class="srow" title="Месяц 11: индекс 1.660"><span class="smon">11</span><span class="strack"><i class="sbar warm" style="left:50%;width:50.00%"></i></span><span class="sval">1.66</span></div>
+<div class="srow" title="Месяц 12: индекс 1.263"><span class="smon">12</span><span class="strack"><i class="sbar warm" style="left:50%;width:19.92%"></i></span><span class="sval">1.26</span></div>
+  </div>
+  <div class="slegend">
+    <span><i style="background:var(--div-warm)"></i> выше среднего месяца</span>
+    <span><i style="background:var(--div-cool)"></i> ниже среднего месяца</span>
+    <span>центральная линия = индекс 1,00</span>
+  </div>
+  <p class="fig-note">Разрыв между ноябрём (1,66) и февралём (0,756) — <strong>2,2 раза</strong>. Планирование закупки и складских остатков без поправки на это заведомо промахивается.</p>
+
+  <h3>Рост настоящий или календарный?</h3>
+  <div class="twrap">
+    <table>
+      <caption>Факт против очищенного от сезонности ряда</caption>
+      <thead><tr><th scope="col">Период</th><th scope="col">Факт</th><th scope="col">Очищенный ряд</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">2024-01</th><td>96 713</td><td>112 211</td></tr>
+        <tr><th scope="row">2024-12</th><td>339 922</td><td>269 186</td></tr>
+        <tr><th scope="row">2025-12</th><td>530 508</td><td>420 114</td></tr>
+        <tr><th scope="row">2026-08</th><td>485 881</td><td class="em">572 636</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fig-note">Очищенный ряд растёт монотонно — бизнес растёт сам, а не за счёт календаря. YoY в 2026 году держится на уровне 46–49%. Внутри недели заказы смещены к будням (понедельник 1,10 от среднего дня, суббота 0,89), внутри суток пики приходятся на 12:00 (индекс 1,65) и 18:00–19:00 (1,81).</p>
+
+  <div class="note trap">
+    <span class="lbl">Артефакт, о котором стоит сказать прямо</span>
+    <p>YoY за январь 2025 показывает 153,9%. Это не рост, а холодный старт: в январе 2024 бизнес работал первый месяц с нулевой клиентской базой. Сравнивать с ним некорректно.</p>
+  </div>
+</section>
+
+<section id="q5">
+  <div class="qhead">
+    <span class="qnum">05</span>
+    <div>
+      <h2 class="sec">RFM-сегментация</h2>
+      <div class="qmeta">
+        <span class="file">05_rfm_segmentation.sql</span>
+        <span>NTILE(5)</span><span>PERCENT_RANK()</span><span>SUM() OVER ()</span><span>RANK()</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="note trap">
+    <span class="lbl">Ловушка: NTILE рвёт группы равных значений</span>
+    <p>Стандартный рецепт RFM — <code>NTILE(5)</code> по каждому из трёх измерений. По частоте покупок это даёт неверный результат, и запрос доказывает это на данных.</p>
+  </div>
+
+  <div class="twrap">
+    <table>
+      <caption>Диагностика: куда NTILE(5) отправляет клиентов с одинаковой частотой</caption>
+      <thead><tr><th scope="col">Заказов</th><th scope="col">Клиентов</th><th scope="col">Мин. квинтиль</th><th scope="col">Макс. квинтиль</th><th scope="col" style="text-align:left">Вердикт</th></tr></thead>
+      <tbody>
+        <tr class="hi"><th scope="row">1</th><td class="em">5 602</td><td>1</td><td>3</td><td class="neg" style="text-align:left">разорван между квинтилями</td></tr>
+        <tr><th scope="row">2</th><td>2 161</td><td>3</td><td>4</td><td class="neg" style="text-align:left">разорван</td></tr>
+        <tr><th scope="row">3</th><td>1 020</td><td>4</td><td>5</td><td class="neg" style="text-align:left">разорван</td></tr>
+        <tr><th scope="row">4</th><td>456</td><td>5</td><td>5</td><td class="pos" style="text-align:left">ок</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fig-note"><code>NTILE</code> режет строго по количеству строк и не смотрит на равенство значений. 58% клиентов имеют ровно один заказ — и эта однородная группа растаскивается по трём разным квинтилям: два одинаковых клиента получают разный балл. Поэтому R и M размечены через <code>NTILE</code>, а F — явными порогами.</p>
+
+  <div class="twrap">
+    <table>
+      <caption>Сегменты клиентской базы</caption>
+      <thead><tr><th scope="col">Сегмент</th><th scope="col">Клиентов</th><th scope="col">Доля</th><th scope="col">Давность, дн</th><th scope="col">Частота</th><th scope="col">Выручка</th><th scope="col">Доля выручки</th><th scope="col">Концентрация</th></tr></thead>
+      <tbody>
+        <tr class="hi"><th scope="row">Чемпионы</th><td>524</td><td>5,4%</td><td>100</td><td>5,19</td><td>1 595 748</td><td>15,7%</td><td class="em">2,90×</td></tr>
+        <tr><th scope="row">Лояльные</th><td>912</td><td>9,4%</td><td>193</td><td>3,44</td><td>1 848 011</td><td>18,1%</td><td>1,93×</td></tr>
+        <tr><th scope="row">Новые / перспективные</th><td>2 862</td><td>29,5%</td><td>108</td><td>1,32</td><td>2 258 826</td><td>22,2%</td><td>0,75×</td></tr>
+        <tr><th scope="row">Требуют внимания</th><td>1 528</td><td>15,7%</td><td>293</td><td>1,28</td><td>1 116 681</td><td>11,0%</td><td>0,70×</td></tr>
+        <tr><th scope="row">Под угрозой</th><td>513</td><td>5,3%</td><td class="em">540</td><td>3,63</td><td>1 012 245</td><td>9,9%</td><td>1,88×</td></tr>
+        <tr><th scope="row">Спящие</th><td>3 373</td><td class="em">34,7%</td><td>629</td><td>1,24</td><td>2 364 818</td><td>23,2%</td><td>0,67×</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note verdict">
+    <span class="lbl">Вывод</span>
+    <p>Сегмент «Под угрозой» — 513 человек, которые покупали в среднем 3,63 раза и молчат 540 дней. Они уносят <strong>1 012 245</strong> выручки (9,9%). Это самая дешёвая аудитория для реактивации: они уже доказали, что умеют покупать повторно. Ещё 360 спящих, но крупных клиентов держат 921 547. Доля чемпионов резко зависит от канала: referral 9,79%, organic 8,16%, paid_social — 1,57%. Разрыв в шесть раз.</p>
+  </div>
+</section>
+
+<section id="q6">
+  <div class="qhead">
+    <span class="qnum">06</span>
+    <div>
+      <h2 class="sec">LTV, CAC и окупаемость каналов</h2>
+      <div class="qmeta">
+        <span class="file">06_ltv_cac_payback.sql</span>
+        <span>SUM() OVER (PARTITION BY … ORDER BY …)</span>
+        <span>FIRST_VALUE()</span><span>LAG()</span>
+      </div>
+    </div>
+  </div>
+
+  <p>Два решения, без которых цифры врут. Первое: LTV за 12 месяцев считается только по клиентам, прожившим эти 12 месяцев — иначе свежие когорты размоют знаменатель. Второе: LTV считается в прибыли, а не в выручке, потому что из выручки ещё нужно вычесть себестоимость, возвраты и доставку.</p>
+
+  <div class="twrap">
+    <table>
+      <caption>Окупается ли канал</caption>
+      <thead><tr><th scope="col">Канал</th><th scope="col">Клиентов</th><th scope="col">CAC</th><th scope="col">LTV₁₂ в прибыли</th><th scope="col">LTV/CAC</th><th scope="col">Окупаемость</th><th scope="col">Прибыль за 12 мес</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">organic_search</th><td>1 027</td><td>8,85</td><td>268,19</td><td class="pos">30,3</td><td>месяц 0</td><td>266 334</td></tr>
+        <tr><th scope="row">email</th><td>564</td><td>13,03</td><td>256,89</td><td class="pos">19,7</td><td>месяц 0</td><td>137 540</td></tr>
+        <tr><th scope="row">referral</th><td>497</td><td>37,20</td><td>258,95</td><td class="pos">7,0</td><td>месяц 0</td><td>110 206</td></tr>
+        <tr><th scope="row">direct</th><td>761</td><td>0,00</td><td>256,74</td><td>—</td><td>месяц 0</td><td>195 378</td></tr>
+        <tr><th scope="row">affiliate</th><td>359</td><td>102,77</td><td>233,62</td><td>2,3</td><td>месяц 0</td><td>46 977</td></tr>
+        <tr class="hi"><th scope="row">paid_search</th><td>1 090</td><td>173,46</td><td>207,32</td><td class="neg">1,20</td><td class="em">месяц 5</td><td>36 905</td></tr>
+        <tr class="hi"><th scope="row">paid_social</th><td>1 343</td><td>158,34</td><td>186,74</td><td class="neg">1,18</td><td class="em">месяц 4</td><td>38 134</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fig-note">Общепринятый ориентир здорового канала — LTV/CAC не ниже 3. Оба платных канала находятся на уровне 1,2: они возвращают вложенное и почти ничего сверх. И это оценка по старым когортам.</p>
+
+  <div class="twrap">
+    <table>
+      <caption>CAC растёт: стоимость привлечения по кварталам</caption>
+      <thead><tr><th scope="col">Канал</th><th scope="col">CAC 2024-Q1</th><th scope="col">CAC 2026-Q3</th><th scope="col">Изменение</th></tr></thead>
+      <tbody>
+        <tr class="hi"><th scope="row">paid_social</th><td>143,94</td><td class="em">220,11</td><td class="neg">+52,9%</td></tr>
+        <tr><th scope="row">affiliate</th><td>89,68</td><td>130,45</td><td class="neg">+45,5%</td></tr>
+        <tr><th scope="row">paid_search</th><td>173,33</td><td>190,79</td><td>+10,1%</td></tr>
+        <tr><th scope="row">referral</th><td>39,28</td><td>42,83</td><td>+9,0%</td></tr>
+        <tr><th scope="row">organic_search</th><td>8,86</td><td>9,23</td><td>+4,1%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fig-note">При CAC 220 и LTV₁₂ в 187 <strong>paid_social уже убыточен на новых когортах</strong>.</p>
+
+  <div class="twrap">
+    <table>
+      <caption>Доля бюджета против доли прибыли</caption>
+      <thead><tr><th scope="col">Канал</th><th scope="col">Бюджет</th><th scope="col">Доля бюджета</th><th scope="col">Вклад</th><th scope="col">Доля прибыли</th><th scope="col">Чистыми</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">organic_search</th><td>15 701</td><td>1,8%</td><td>487 215</td><td>22,2%</td><td class="pos">+471 515</td></tr>
+        <tr><th scope="row">direct</th><td>0</td><td>0,0%</td><td>320 315</td><td>14,6%</td><td class="pos">+320 315</td></tr>
+        <tr><th scope="row">email</th><td>12 630</td><td>1,4%</td><td>227 576</td><td>10,4%</td><td class="pos">+214 946</td></tr>
+        <tr><th scope="row">referral</th><td>33 987</td><td>3,8%</td><td>223 882</td><td>10,2%</td><td class="pos">+189 896</td></tr>
+        <tr><th scope="row">affiliate</th><td>66 714</td><td>7,5%</td><td>144 291</td><td>6,6%</td><td>+77 577</td></tr>
+        <tr><th scope="row">paid_search</th><td>337 769</td><td>38,1%</td><td>385 688</td><td>17,6%</td><td>+47 919</td></tr>
+        <tr class="hi"><th scope="row">paid_social</th><td class="em">420 390</td><td class="em">47,4%</td><td>402 878</td><td>18,4%</td><td class="neg">−17 512</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note verdict">
+    <span class="lbl">Вывод</span>
+    <p>Почти половина маркетингового бюджета уходит в канал, который в сумме за 32 месяца ушёл в минус. organic_search при бюджете в 27 раз меньше приносит больше прибыли.</p>
+  </div>
+</section>
+
+<section id="q7">
+  <div class="qhead">
+    <span class="qnum">07</span>
+    <div>
+      <h2 class="sec">ABC-анализ ассортимента</h2>
+      <div class="qmeta">
+        <span class="file">07_product_pareto_abc.sql</span>
+        <span>SUM() OVER (ROWS UNBOUNDED PRECEDING)</span>
+        <span>ROW_NUMBER()</span><span>NTILE(10)</span><span>RANK()</span>
+      </div>
+    </div>
+  </div>
+
+  <p>Накопленная доля считается оконной функцией — без неё пришлось бы соединять таблицу товаров с самой собой.</p>
+
+  <div class="twrap">
+    <table>
+      <caption>Классификация по накопленной доле выручки</caption>
+      <thead><tr><th scope="col">Класс</th><th scope="col">Товаров</th><th scope="col">Доля каталога</th><th scope="col">Выручка</th><th scope="col">Доля выручки</th><th scope="col">Доля прибыли</th><th scope="col">Маржа</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">A</th><td>187</td><td>33,1%</td><td>8 150 435</td><td class="em">79,9%</td><td>71,7%</td><td class="neg">19,4%</td></tr>
+        <tr><th scope="row">B</th><td>173</td><td>30,6%</td><td>1 533 961</td><td>15,0%</td><td>19,8%</td><td>28,5%</td></tr>
+        <tr><th scope="row">C</th><td>205</td><td>36,3%</td><td>511 933</td><td>5,0%</td><td>8,5%</td><td class="pos">36,6%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fig-note">Правило Парето подтверждается, но в смягчённом виде: 33% каталога дают 80% выручки, а не 20/80. Верхний дециль — 10% товаров — даёт 49,9% оборота.</p>
+
+  <div class="twrap">
+    <table>
+      <caption>Обратный градиент маржи по децилям каталога</caption>
+      <thead><tr><th scope="col">Дециль</th><th scope="col">Доля выручки</th><th scope="col">Накопленная</th><th scope="col">Маржа</th></tr></thead>
+      <tbody>
+        <tr class="hi"><th scope="row">1</th><td class="em">49,9%</td><td>49,9%</td><td class="neg">18,2%</td></tr>
+        <tr><th scope="row">2</th><td>17,1%</td><td>67,0%</td><td>22,3%</td></tr>
+        <tr><th scope="row">5</th><td>5,4%</td><td>90,4%</td><td>29,0%</td></tr>
+        <tr class="hi"><th scope="row">10</th><td>0,6%</td><td>100,0%</td><td class="pos">44,3%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note verdict">
+    <span class="lbl">Вывод</span>
+    <p>Чем лучше товар продаётся, тем хуже он зарабатывает. Бестселлеры дают 18,2% маржи, хвост каталога — 44,3%. Хвост нельзя резать механически «по обороту»: там сидит самая маржинальная часть ассортимента. Двойная классификация выявила <strong>46 ловушек</strong> — товаров класса A по обороту и B/C по вкладу, из них 7 прямо убыточны. Всего в каталоге 11 убыточных товаров, которые прокачивают через себя 212 022 выручки и дают <strong>−6 971</strong> вклада.</p>
+  </div>
+</section>
+
+<section id="q8">
+  <div class="qhead">
+    <span class="qnum">08</span>
+    <div>
+      <h2 class="sec">Повторные покупки и отток</h2>
+      <div class="qmeta">
+        <span class="file">08_repeat_purchase_churn.sql</span>
+        <span>ROW_NUMBER() OVER (PARTITION BY customer_id)</span>
+        <span>LAG()</span><span>CUME_DIST()</span>
+      </div>
+    </div>
+  </div>
+
+  <p>Медиана и p90 считаются через <code>CUME_DIST()</code> — в SQLite нет <code>PERCENTILE_CONT</code>.</p>
+
+  <div class="twrap">
+    <table>
+      <caption>Где рвётся цепочка заказов</caption>
+      <thead><tr><th scope="col">Заказ №</th><th scope="col">Клиентов</th><th scope="col">Доля базы</th><th scope="col">Вероятность следующего</th><th scope="col">Потеряно</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">1</th><td>9 712</td><td>100%</td><td>—</td><td>—</td></tr>
+        <tr class="hi"><th scope="row">2</th><td>4 110</td><td>42,3%</td><td class="neg">42,3%</td><td class="em">5 602</td></tr>
+        <tr><th scope="row">3</th><td>1 949</td><td>20,1%</td><td class="pos">47,4%</td><td>2 161</td></tr>
+        <tr><th scope="row">4</th><td>929</td><td>9,6%</td><td class="pos">47,7%</td><td>1 020</td></tr>
+        <tr><th scope="row">5</th><td>473</td><td>4,9%</td><td class="pos">50,9%</td><td>456</td></tr>
+        <tr><th scope="row">6</th><td>247</td><td>2,5%</td><td class="pos">52,2%</td><td>226</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fig-note">Барьер один и он на входе: переход от первого заказа ко второму — 42,3%, дальше вероятность стабилизируется на 48–52% и даже растёт. Клиент, сделавший второй заказ, качественно отличается от клиента с одним заказом. 5 602 потерянных на первом шаге — больше, чем на всех остальных шагах вместе.</p>
+
+  <div class="twrap">
+    <table>
+      <caption>Интервал между покупками сокращается</caption>
+      <thead><tr><th scope="col">Переход</th><th scope="col">Наблюдений</th><th scope="col">Среднее, дн</th><th scope="col">Медиана</th><th scope="col">p90</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">1 → 2</th><td>4 110</td><td>130</td><td class="em">90</td><td>288</td></tr>
+        <tr><th scope="row">2 → 3</th><td>1 949</td><td>97</td><td class="em">53</td><td>254</td></tr>
+        <tr><th scope="row">3 → 4</th><td>929</td><td>102</td><td>61</td><td>253</td></tr>
+        <tr><th scope="row">5 → 6</th><td>247</td><td>94</td><td>56</td><td>215</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fig-note">Половина вторых заказов (50,1%) случается в первые 90 дней. После 180 дней вероятность резко падает — там остаётся 24,1%. Значит, реактивационную кампанию нужно запускать на 60–90 день молчания, а не на 180-й.</p>
+
+  <div class="note">
+    <span class="lbl">Персональный порог вместо фиксированного</span>
+    <p>Порог «не покупал 180 дней» плох тем, что клиент с циклом в 2 месяца и клиент с циклом в год считаются одинаково. Здесь порог персональный — два собственных средних интервала клиента.</p>
+  </div>
+
+  <div class="twrap">
+    <table>
+      <caption>Клиенты с тремя и более заказами: кто под угрозой сейчас</caption>
+      <thead><tr><th scope="col">Статус</th><th scope="col">Клиентов</th><th scope="col">Доля</th><th scope="col">Личный цикл, дн</th><th scope="col">Молчит, дн</th><th scope="col">Выручка</th><th scope="col">Доля</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">в норме</th><td>906</td><td>46,5%</td><td>137</td><td>113</td><td>2 110 843</td><td>47,4%</td></tr>
+        <tr class="hi"><th scope="row">под угрозой</th><td class="em">1 043</td><td class="em">53,5%</td><td>75</td><td class="neg">387</td><td class="em">2 345 161</td><td class="em">52,6%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note verdict">
+    <span class="lbl">Вывод</span>
+    <p>Из клиентов с тремя и более заказами больше половины уже вышли за свой персональный ритм. Запрос отдаёт готовый список на обзвон, отсортированный по LTV: в верхней строке клиент с 6 заказами, LTV 14 488, обычным циклом 35 дней и 270 днями молчания.</p>
+  </div>
+</section>
+
+<section id="limits">
+  <h2 class="sec">Ограничения</h2>
+  <p>Честный список того, чего эти цифры не значат.</p>
+  <ol class="steps">
+    <li><strong>Данные синтетические.</strong> Все закономерности заложены генератором. Выводы демонстрируют метод, а не описывают реальный рынок.</li>
+    <li><strong>Конверсия воронки завышена.</strong> В логе только вовлечённые сессии — отказы и боты отфильтрованы на стороне трекера, поэтому 5,04% сессия → покупка выше рыночных 2–3%. Сравнивать имеет смысл сегменты между собой, а не абсолютный уровень с бенчмарками.</li>
+    <li><strong>Сезонность одинакова для всех категорий.</strong> Генератор применяет один сезонный профиль ко всему спросу, поэтому все пять веток пикуют в ноябре. В реальности профили расходятся.</li>
+    <li><strong>Атрибуция упрощена.</strong> Канал привлечения фиксируется один раз и навсегда, мультиканальные цепочки не моделируются. LTV/CAC по каналам — верхняя оценка для последнего канала.</li>
+    <li><strong>Стоимость возврата занижена.</strong> Учитывается только сумма возвращённых денег: обратная логистика, приём и уценка не моделируются. Реальная маржа Apparel была бы ещё ниже.</li>
+    <li><strong>Холодный старт.</strong> Январь 2024 — первый месяц работы с нулевой базой. Любые YoY-сравнения с первыми месяцами отражают старт, а не рост.</li>
+  </ol>
+
+  <h3>Как воспроизвести</h3>
+  <pre><code>./run_all.sh</code></pre>
+  <p>Скрипт сгенерирует базу примерно за 15 секунд, создаст представления, выполнит все восемь запросов и проверки качества. Нужен только <code>python3</code> со стандартной библиотекой и <code>sqlite3</code> версии 3.28 или новее. Seed зафиксирован: повторная генерация — в том числе на другой машине и в другом каталоге — даёт побайтово идентичные данные во всех одиннадцати таблицах и идентичные выгрузки всех девяти отчётов.</p>
+</section>
+
+<p class="foot">Витрина из 11 таблиц, 32 месяца, 9 712 покупателей. 37 CTE (один рекурсивный) и 176 вхождений оконных функций в восьми файлах. Диалект — SQLite 3.43.</p>
+
+</main>
+</div>
+</div>
