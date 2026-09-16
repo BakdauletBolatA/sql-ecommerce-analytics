@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pytest
+
+      - name: Проверки качества обязаны падать на дефектах
+        run: python -m pytest tests -q
+
+      - name: Витрина пересобирается из генератора в те же цифры
+        # Генератор детерминирован (seed), поэтому полная пересборка обязана
+        # дать те же результаты, что лежат в results/. Иначе отчёты в репозитории
+        # нельзя проверить - только принять на веру.
+        run: |
+          rm -f data/ecommerce.db
+          ./run_all.sh
+          git diff --exit-code --stat -- results/
