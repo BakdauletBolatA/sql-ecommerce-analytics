@@ -19,7 +19,12 @@ from pathlib import Path
 import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
+# База в репозиторий не коммитится - она детерминированно собирается генератором.
 DB = ROOT / 'data' / 'ecommerce.db'
+pytestmark = pytest.mark.skipif(
+    not DB.exists(),
+    reason='нет data/ecommerce.db - соберите витрину: python3 data/generate_ecommerce_db.py',
+)
 VIEWS = ROOT / 'sql' / '00_setup_views.sql'
 CHECKS = ROOT / 'sql' / '99_data_quality_checks.sql'
 

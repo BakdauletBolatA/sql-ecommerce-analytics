@@ -17,6 +17,10 @@ jobs:
           python-version: "3.12"
       - run: pip install pytest
 
+      - name: Собрать витрину
+        # База не коммитится: генератор детерминирован, seed зафиксирован.
+        run: python3 data/generate_ecommerce_db.py
+
       - name: Проверки качества обязаны падать на дефектах
         run: python -m pytest tests -q
 
